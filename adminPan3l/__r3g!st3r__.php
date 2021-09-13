@@ -8,11 +8,13 @@ if ($objLogin->login_check()) $obj->redirect('./');
 
 $objLogin = new Login();
 
-if(isset($_POST['email']) && $_POST['email'] != "")
+if(isset($_POST['email']) && $_POST['email'] != "" && $_POST['name'] != "")
 {
     global $con;
 
     $email = $_POST['email'];
+
+    $name = $_POST['name'];
 
     $data = $obj->select('email','tbl_users','email = ?', array($email));
 
@@ -24,13 +26,13 @@ if(isset($_POST['email']) && $_POST['email'] != "")
         $password = hash('sha512', $password.$random_salt);
 
         $sql = "INSERT INTO tbl_users";
-        $sql .= "(email,password,salt,access)";
+        $sql .= "(name, email,password,salt,access)";
         $sql .= "VALUES";
-        $sql .= "(?,?,?,?)";
+        $sql .= "(?,?,?,?,?)";
 
         $stm = $con->prepare($sql);
 
-        $stm->execute(array($email,$password,$random_salt,1));
+        $stm->execute(array($name, $email,$password,$random_salt,1));
 
         $obj->redirect('login.php?err=2');
     } else {
@@ -68,6 +70,10 @@ if(isset($_POST['email']) && $_POST['email'] != "")
                         <div class="mb-3">
                             <label for="email" class="form-label">Email Address</label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required/>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>

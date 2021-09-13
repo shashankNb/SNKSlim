@@ -63,6 +63,8 @@ class Login extends Functions
 
                     $_SESSION['user_ko_access'] = $data[0]->access;
 
+                    $_SESSION['user_name'] = $data[0]->name;
+
                     $_SESSION['login_string'] = hash('sha512', $password . $ip_address . $user_browser);
 
                     echo '<br>Email = '.$_SESSION['email'];
@@ -130,6 +132,10 @@ class Login extends Functions
         session_destroy();
 
         header('Location: login.php');
+    }
+
+    public function session($key) {
+        return isset($_SESSION[$key]) ? $_SESSION[$key] : '';
     }
 
 

@@ -115,13 +115,14 @@ aside ul .submenu-active > ul li a:hover {
     background: #f3f3f3;
 }
 
-/*.login-modal .modal-dialog {*/
-/*    -webkit-transform: translate(0,-50%);*/
-/*    -o-transform: translate(0,-50%);*/
-/*    transform: translate(0,-50%);*/
-/*    top: 50%;*/
-/*    margin: 0 auto;*/
-/*}*/
+.login-modal .modal-dialog {
+    -webkit-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    top: 50%;
+    margin: 0 auto;
+    pointer-events: all;
+}
 
 /* ============= MOBILE RESPONSIVE ============== */
 @media only screen and (min-width: 768px) {

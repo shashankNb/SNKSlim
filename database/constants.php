@@ -5,6 +5,6 @@
     const USER = 'root';
     const PWD = "";
     const DB = 'vue_website';
-    const BASE_URL = 'http://localhost/vue/adminPan3l';
-    const SITE_ROOT = 'http://localhost/vue';
+    const BASE_URL = 'http://localhost/SNKSlim/adminPan3l';
+    const SITE_ROOT = 'http://localhost/SNKSlim';
     const ADMIN_ONLY = true;

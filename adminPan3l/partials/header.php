@@ -17,7 +17,7 @@
             <span><strong><i class="fa fa-caret-left me-2"></i></strong> Project: <strong><?php echo SITE_NAME; ?></strong></span>
         </div>
         <div class="d-block float-end">
-            <span class="m-lg-2"><i class="fa fa-user-alt text-warning"></i> <strong>Shashank Bhattarai (Admin) </strong></span>
+            <span class="m-lg-2"><i class="fa fa-user-alt text-warning"></i> <strong><?php echo $objLogin->session('user_name'); ?> (Admin) </strong></span>
             <a href="<?php echo BASE_URL . '/logout.php'; ?>"><i class="fa fa-sign-out text-info"></i> <strong>Logout</strong></a>
         </div>
         <div class="clearfix"></div>

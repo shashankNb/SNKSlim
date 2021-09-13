@@ -122,7 +122,7 @@ if(isset($_POST['reset']) && isset($_POST['email']))
                 </form>
             </div>
             <div class="forgot-password-help text-center">
-                <span class="text-white">Forgot Password ? <a href="<?php echo BASE_URL . '/forgot.php'; ?>" class="text-black-50 text-decoration-none">Click Here to reset it</a></span>
+                <span class="text-white">Back to Login - <a href="<?php echo BASE_URL . '/login.php'; ?>" class="text-black-50 text-decoration-none">click Here</a></span>
             </div>
         </div>
     </div>

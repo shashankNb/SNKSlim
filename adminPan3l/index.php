@@ -1,5 +1,8 @@
-<?php include_once "main.php"; ?>
-<?php include_once "partials/header.php"; ?>
+<?php
+    include_once "main.php";
+    $objLogin->sec_session_start();
+    include_once "partials/header.php";
+?>
 <div class="container-fluid bottom-block">
     <div class="row">
         <aside class="col-md-2">
@@ -8,7 +11,6 @@
         <main class="col-md-10">
             <div class="content">
                 <?php
-                $objLogin->sec_session_start();
                 if ($objLogin->login_check()) {
                     $pg = isset($_GET['pg']) ? $_GET['pg'] : 'dashboardManage';
                     if (is_file('views/' . $pg . '.php'))
