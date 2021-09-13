@@ -1,0 +1,15 @@
+{
+    "name": "legion/vue",
+    "autoload": {
+        "psr-4": {
+            "Legion\\Vue\\": "/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shashank Bhattarai",
+            "email": "info@shashankbhattarai.com.np"
+        }
+    ],
+    "require": {}
+}

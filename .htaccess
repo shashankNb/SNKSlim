@@ -1,0 +1,11 @@
+Options All -Indexes -MultiViews
+RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^adminPan3l($|/) - [L]
+RewriteRule ^assets($|/) - [L]
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteCond %{REQUEST_URI}  !\.(php|html?|jpg|gif|png|css?|js?|txt|xml|woff|ttf|svg|zip|jpeg)$
+RewriteRule ^([a-zA-Z0-9_-]+)$ ?verify&id=$1 [NC,L]
+RewriteRule ^([a-zA-Z0-9_-].+)/$ ?verify&id=$1 [NC,L]
