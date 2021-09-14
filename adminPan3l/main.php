@@ -11,7 +11,12 @@
     include_once("./config/connect.php");
     include_once("./class/class.query.php");
     include_once("./class/class.functions.php");
+    include_once("./class/class.columns.php");
+    include_once("./class/class.params.php");
+    include_once("./class/class.params.php");
+    include_once("./class/class.datatable.php");
     include_once("./class/class.login.php");
+    include_once("./class/class.pagination.php");
 
     $obj = new Functions();
     $objLogin = new Login();

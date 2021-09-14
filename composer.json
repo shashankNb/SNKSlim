@@ -11,5 +11,7 @@
             "email": "info@shashankbhattarai.com.np"
         }
     ],
-    "require": {}
+    "require": {
+        "nesbot/carbon": "^2.53"
+    }
 }
