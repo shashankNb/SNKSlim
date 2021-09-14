@@ -8,5 +8,11 @@
             <li><a href="<?php echo BASE_URL .'?pg=dashboard' ?>">Dashboard</a></li>
             <li><a href="<?php echo BASE_URL .'?pg=dashboardManage' ?>">Manage Dashboard</a></li>
         </ul>
+
+        <a data-bs-toggle="collapse" href="#collapseUser" role="button" aria-expanded="true" aria-controls="collapseUser">Manage Users</a>
+        <ul class="collapse show" id="collapseUser">
+            <li><a href="<?php echo BASE_URL .'?pg=user' ?>">User</a></li>
+            <li><a href="<?php echo BASE_URL .'?pg=userManage' ?>">User Manage</a></li>
+        </ul>
     </li>
 </ul>

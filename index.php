@@ -2,7 +2,7 @@
 
 require_once "main.php";
 
-switch(ADMIN_ONLY) {
+switch (ADMIN_ONLY) {
     case true:
         $obj->redirect(BASE_URL);
         break;
