@@ -124,6 +124,42 @@ aside ul .submenu-active > ul li a:hover {
     pointer-events: all;
 }
 
+
+/* ================= PAGINATION BUTTONS ==================== */
+.pagination span {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.pagination span:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.pagination a,
+.pagination a:last-child {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    /* border-radius: 15px; */
+}
+
+.pagination a:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.pagination a:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.pagination span:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 /* ============= MOBILE RESPONSIVE ============== */
 @media only screen and (min-width: 768px) {
     .bottom-block > .row > aside {

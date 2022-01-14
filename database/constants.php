@@ -4,7 +4,7 @@
     const HOST = 'localhost';
     const USER = 'root';
     const PWD = "";
-    const DB = 'vue_website';
-    const BASE_URL = 'http://localhost/SNKSlim/adminPan3l';
-    const SITE_ROOT = 'http://localhost/SNKSlim';
+    const DB = 'test';
+    const BASE_URL = 'http://localhost/sales_tracking/adminPan3l';
+    const SITE_ROOT = 'http://localhost/sales_tracking';
     const ADMIN_ONLY = true;

@@ -53,7 +53,7 @@ class Pagination
 
         if ($loop_start != 1)
         {
-            $this->output .= '<a href=\''.$link.'&page=1\' class=\'active\'>1</a>...';
+            $this->output .= '<a href=\''.$link.'&page=1\' class=\'active\'>1</a><a href="#">...</a>';
         }
 
         for ($p = $loop_start; $p <= $loop_range; $p++)
@@ -70,7 +70,7 @@ class Pagination
 
         if ($loop_range != $total_pages)
         {
-            $this->output .= '...<a href=\''.$link.'&page='.$total_pages.'\' class=\'active\'>'.$total_pages.'</a>';
+            $this->output .= '<a href="#">...</a><a href=\''.$link.'&page='.$total_pages.'\' class=\'active\'>'.$total_pages.'</a>';
         }
 
         if ($current_page != $total_pages)

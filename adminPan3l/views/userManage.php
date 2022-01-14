@@ -19,7 +19,7 @@
 
     $col = implode(',', array_map(function ($item) { return $item->name; }, $columns));
     $rowCount = $obj->rowCount($col, 'tbl_users');
-    $pagination = new pagination(20, $rowCount, '?userManage');
+    $pagination = new pagination(20, $rowCount, '?pg=userManage');
     $users = $obj->select($col,"tbl_users ORDER BY name LIMIT {$pagination->limit["first"]}, {$pagination->limit["second"]}");
 
     $dataTable = new DataTable();
