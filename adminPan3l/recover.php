@@ -83,52 +83,75 @@ if(isset($_POST['reset']) && isset($_POST['email']))
     }
 }
 ?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo BASE_URL . '/assets/css/bootstrap.min.css'; ?>">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="<?php echo BASE_URL . '/assets/css/style.css'; ?>">
-    <title>Administration Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Administration | Forgot Password</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="ROBOTS" content="NOFOLLOW, NOINDEX" />
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/bootstrap/dist/css/bootstrap.min.css'; ?>">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/font-awesome/css/font-awesome.min.css'; ?>">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/Ionicons/css/ionicons.min.css'; ?>">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/dist/css/AdminLTE.min.css'; ?>">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="body-login">
-<section>
-    <!-- Modal -->
-    <div class="modal login-modal d-block" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content mb-3">
-                <div class="modal-header">
-                    <h5 class="modal-title text-center">Forgot Password</h5>
-                </div>
-                <form action="#" method="post" name="resetForm" id="resetForm">
-                    <div class="modal-body">
-                        <?php if (isset($msg)): ?>
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <i class="fas fa-times-circle text-danger"></i> <strong>Error</strong><br>
-                                <?php echo $msg; ?>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        <?php endif; ?>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email" required />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" name="reset" class="btn btn-info">Get Password</button>
-                    </div>
-                </form>
-            </div>
-            <div class="forgot-password-help text-center">
-                <span class="text-white">Back to Login - <a href="<?php echo BASE_URL . '/login.php'; ?>" class="text-black-50 text-decoration-none">click Here</a></span>
-            </div>
-        </div>
+<body class="hold-transition register-page">
+<div class="register-box">
+    <div class="register-logo">
+        <a href="#"><b>Admin</b>LTE</a>
     </div>
-</section>
-<script src="<?php echo BASE_URL .'/assets/js/bootstrap.bundle.min.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo BASE_URL . '/assets/js/sha512.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo BASE_URL . '/assets/js/form.js'; ?>"></script>
+
+    <div class="register-box-body">
+        <p class="login-box-msg">Reset Password</p>
+        <form action="#" method="post" name="resetForm" id="resetForm">
+            <?php if (isset($msg)): ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                    <?php echo $msg; ?>
+                </div>
+            <?php endif; ?>
+            <div class="form-group has-feedback">
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <a href="<?php echo BASE_URL. '/login.php'; ?>" class="text-center">Back to Login</a>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" name="reset" class="btn btn-primary btn-block btn-flat">Reset</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+    </div>
+    <!-- /.form-box -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery 3 -->
+<script src="<?php echo BASE_URL.'/assets/bower_components/jquery/dist/jquery.min.js'; ?>"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<?php echo BASE_URL.'/assets/bower_components/bootstrap/dist/js/bootstrap.min.js'; ?>"></script>
+<!-- iCheck -->
+<script src="<?php echo BASE_URL. '/assets/dist/js/form.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/dist/js/sha512.js'; ?>"></script>
 </body>
 </html>

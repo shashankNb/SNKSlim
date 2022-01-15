@@ -4,7 +4,7 @@ class Login extends Functions
 {
     public $obj;
 
-    function Login()
+    function __construct()
     {
         $this->obj = new Functions();
     }
@@ -36,7 +36,7 @@ class Login extends Functions
     {
         global $con;
 
-        if ($stm = $con->prepare("SELECT id, email, password, salt, access FROM tbl_users WHERE email = ? LIMIT 1")) {
+        if ($stm = $con->prepare("SELECT id, email, name, password, salt, access FROM tbl_users WHERE email = ? LIMIT 1")) {
 
             $stm->execute(array($user));
 

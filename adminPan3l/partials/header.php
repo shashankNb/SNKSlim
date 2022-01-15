@@ -1,25 +1,47 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo BASE_URL . '/assets/css/bootstrap.min.css'; ?>">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="<?php echo BASE_URL . '/assets/css/style.css'; ?>">
-    <link rel="stylesheet" href="<?php echo BASE_URL . '/assets/plugins/datatable/datatables.min.css'; ?>">
-    <title>Administration Panel</title>
-</head>
-<body>
+<!-- Logo -->
+<a href="index2.html" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><b>A</b>LT</span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b>Admin</b>LTE</span>
+</a>
 
-<div class="container-fluid px-0">
-    <div class="top-block">
-        <div class="d-block float-start">
-            <span><strong><i class="fa fa-caret-left me-2"></i></strong> Project: <strong><?php echo SITE_NAME; ?></strong></span>
-        </div>
-        <div class="d-block float-end">
-            <span class="m-lg-2"><i class="fa fa-user-alt text-warning"></i> <strong><?php echo $objLogin->session('user_name'); ?> (Admin) </strong></span>
-            <a href="<?php echo BASE_URL . '/logout.php'; ?>"><i class="fa fa-sign-out text-info"></i> <strong>Logout</strong></a>
-        </div>
-        <div class="clearfix"></div>
+<!-- Header Navbar -->
+<nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+    </a>
+    <!-- Navbar Right Menu -->
+    <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <!-- The user image in the navbar-->
+                    <img src="<?php echo BASE_URL.'/assets/dist/img/user2-160x160.jpg'; ?>" class="user-image" alt="User Image">
+                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                    <span class="hidden-xs"><?php echo $_SESSION['user_name']; ?></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <!-- The user image in the menu -->
+                    <li class="user-header">
+                        <img src="<?php echo BASE_URL.'/assets/dist/img/user2-160x160.jpg'; ?>" class="img-circle" alt="User Image">
+
+                        <p>
+                            <?php echo $_SESSION['user_name']; ?> - Web Developer
+                            <small><?php echo $_SESSION['email']; ?></small>
+                        </p>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <div class="pull-right">
+                            <a href="<?php echo BASE_URL.'/logout.php'; ?>" class="btn btn-default btn-flat">Sign out</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>

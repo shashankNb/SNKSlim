@@ -1,17 +1,6 @@
-<script src="<?php echo BASE_URL . '/assets/js/bootstrap.bundle.min.js'; ?>"></script>
-<script src="<?php echo BASE_URL .'/assets/plugins/datatable/datatables.min.js'; ?>"></script>
-<script src="<?php echo BASE_URL .'/assets/js/app.js'; ?>"></script>
-<script>
-    $(function () {
-        $('#dataTable').DataTable({
-            'paging'      : false,
-            'lengthChange': false,
-            'searching'   : false,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : false
-        });
-  });
-</script>
-</body>
-</html>
+<!-- To the right -->
+<div class="pull-right hidden-xs">
+    Anything you want
+</div>
+<!-- Default to the left -->
+<strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.

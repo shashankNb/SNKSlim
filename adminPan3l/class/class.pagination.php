@@ -1,10 +1,10 @@
 <?php
 class Pagination
 {
-    var $output 		= '';
-    var $limit 			= array();
+    public $output = '';
+    public $limit = array();
 
-    function Pagination($per_page, $results, $link)
+    function __construct($per_page, $results, $link)
     {
         $total_pages 	= ceil($results / $per_page);
 
@@ -20,15 +20,15 @@ class Pagination
 
         $this->limit["second"] 	= $per_page;
 
-        $this->output .= '<div class=\'pagination\'>';
+        $this->output .= '<nav aria-label="Page Navigation"><ul class=\'pagination pull-right\'>';
 
         if ($current_page != 1)
         {
-            $this->output .= '<a href=\''.$link.'&page='.$previous.'\' class=\'active\'>Prev</a>';
+            $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page='.$previous.'\' class=\'active\'> <span aria-hidden="true">Previous</span></a></li>';
         }
         else
         {
-            $this->output .= '<span class=\'inactive\'>Prev</span>';
+            $this->output .= '<li class="paginate_button prev disabled"><a aria-controls="Prev">Previous</a></li>';
         }
 
         if ($total_pages <= 7)
@@ -53,35 +53,35 @@ class Pagination
 
         if ($loop_start != 1)
         {
-            $this->output .= '<a href=\''.$link.'&page=1\' class=\'active\'>1</a><a href="#">...</a>';
+            $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page=1\' class=\'active\'>1</a><a>...</a></li>';
         }
 
         for ($p = $loop_start; $p <= $loop_range; $p++)
         {
             if ($p != $current_page)
             {
-                $this->output .= '<a href=\''.$link.'&page='.$p.'\' class=\'active\'>'.$p.'</a>';
+                $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page='.$p.'\' class=\'active\'>'.$p.'</a></li>';
             }
             else
             {
-                $this->output .= '<span class=\'current\'>'.$p.'</span>';
+                $this->output .= '<li class="paginate_button active"><a href="#">'.$p.'<span class=\'sr-only\'>current</span></a></li>';
             }
         }
 
         if ($loop_range != $total_pages)
         {
-            $this->output .= '<a href="#">...</a><a href=\''.$link.'&page='.$total_pages.'\' class=\'active\'>'.$total_pages.'</a>';
+            $this->output .= '<li class="paginate_button"><a>...</a></li><li><a href=\''.$link.'&page='.$total_pages.'\' class=\'active\'>'.$total_pages.'</a></li>';
         }
 
         if ($current_page != $total_pages)
         {
-            $this->output .= '<a href=\''.$link.'&page='.$next.'\' class=\'active\'>Next</a>';
+            $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page='.$next.'\' class=\'active\'>Next</a></li>';
         }
         else
         {
-            $this->output .= '<span class=\'inactive\'>Next</span>';
+            $this->output .= '<li class="paginate_button next disabled"><a aria-controls="Next">Next</a></li>';
         }
 
-        $this->output .= '</div>';
+        $this->output .= '</ul></nav>';
     }
 }

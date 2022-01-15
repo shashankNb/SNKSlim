@@ -18,4 +18,3 @@ if(isset($_POST['email']))
 } else {
     $obj->redirect('login.php');
 }
-?>
