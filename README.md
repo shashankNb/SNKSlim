@@ -14,6 +14,14 @@ Framework features :-
 
 - Common data table display with jQuery Data Tables with Pagination Support.
 
+- Added Composer for project to be able to install external dependency
+
+- Carbon library is used for transformation of dates.
 
 
-Contribute If you can...
+
+I don't have time to write the documentation for it. Configurations are straight forward and easy to use for micro projects
+
+
+
+Contribute If you can...Cheers :)
