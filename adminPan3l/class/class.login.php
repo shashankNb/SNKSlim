@@ -40,14 +40,14 @@ class Login extends Functions
 
             $stm->execute(array($user));
 
-            $data = $stm->fetchAll(PDO::FETCH_CLASS);
+            $data = $stm->fetch(PDO::FETCH_OBJ);
 
 
-            if (count($data) > 0) {
+            if ($data != null) {
 
-                $password = hash('sha512', $password . $data[0]->salt);
+                $password = hash('sha512', $password . $data->salt);
 
-                $dbPassword = $data[0]->password;
+                $dbPassword = $data->password;
 
                 if ($password == $dbPassword) {
 
@@ -55,15 +55,15 @@ class Login extends Functions
 
                     $user_browser = $_SERVER['HTTP_USER_AGENT'];
 
-                    $user_id = preg_replace("/[^0-9]+/", "", $data[0]->id);
+                    $user_id = preg_replace("/[^0-9]+/", "", $data->id);
 
                     $_SESSION['user_ko_id'] = $user_id;
 
-                    $_SESSION['email'] = $data[0]->email;
+                    $_SESSION['email'] = $data->email;
 
-                    $_SESSION['user_ko_access'] = $data[0]->access;
+                    $_SESSION['user_ko_access'] = $data->access;
 
-                    $_SESSION['user_name'] = $data[0]->name;
+                    $_SESSION['user_name'] = $data->name;
 
                     $_SESSION['login_string'] = hash('sha512', $password . $ip_address . $user_browser);
 
@@ -104,7 +104,7 @@ class Login extends Functions
 
             $user_browser = $_SERVER['HTTP_USER_AGENT'];
 
-            if ($stm = $con->prepare("SELECT password FROM tbl_users WHERE id = ? LIMIT 1")) {
+            if ($stm = $con->prepare("SELECT password FROM tbl_users WHERE id = ? AND status = 1")) {
 
                 $stm->execute(array($user_id));
 
@@ -135,8 +135,6 @@ class Login extends Functions
     }
 
     public function session($key) {
-        return isset($_SESSION[$key]) ? $_SESSION[$key] : '';
+        return $_SESSION[$key] ?? '';
     }
-
-
 }

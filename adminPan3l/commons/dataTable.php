@@ -1,4 +1,4 @@
-<table id="dataTable" class="table table-responsive table-bordered table-striped">
+<table id="dataTable" class="table table-bordered table-hover">
     <thead>
     <tr>
         <?php foreach ($columns as $index => $column): ?>

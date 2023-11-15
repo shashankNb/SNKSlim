@@ -8,31 +8,31 @@ if ($objLogin->login_check()) $obj->redirect('./');
 
 $objLogin = new Login();
 
-if(isset($_POST['email']) && $_POST['email'] != "" && $_POST['name'] != "")
-{
+if (isset($_POST['email']) && $_POST['email'] != "" && $_POST['name'] != "") {
+
     global $con;
 
     $email = $_POST['email'];
 
     $name = $_POST['name'];
 
-    $data = $obj->select('email','tbl_users','email = ?', array($email));
+    $data = $obj->select('email', 'tbl_users', 'email = ?', array($email));
 
     if (count($data) == 0) {
         $password = $_POST['id'];
 
         $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
 
-        $password = hash('sha512', $password.$random_salt);
+        $password = hash('sha512', $password . $random_salt);
 
         $sql = "INSERT INTO tbl_users";
-        $sql .= "(name, email, password, salt, access)";
+        $sql .= "(name, email, password, salt, access, status)";
         $sql .= "VALUES";
-        $sql .= "(?,?,?,?,?)";
+        $sql .= "(?,?,?,?,?,?)";
 
         $stm = $con->prepare($sql);
 
-        $stm->execute(array($name, $email,$password,$random_salt,1));
+        $stm->execute(array($name, $email, $password, $random_salt, 1, 0));
 
         $obj->redirect('login.php?err=2');
     } else {
@@ -48,15 +48,11 @@ if(isset($_POST['email']) && $_POST['email'] != "" && $_POST['name'] != "")
     <title>Administration | Register</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <meta name="ROBOTS" content="NOFOLLOW, NOINDEX" />
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/bootstrap/dist/css/bootstrap.min.css'; ?>">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/font-awesome/css/font-awesome.min.css'; ?>">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/Ionicons/css/ionicons.min.css'; ?>">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/dist/css/AdminLTE.min.css'; ?>">
+    <meta name="ROBOTS" content="NOFOLLOW, NOINDEX"/>
+    <!-- font awesome free 5-->
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/fontawesome-free/css/all.min.css'; ?>">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL. '/assets/dist/css/AdminLTE.min.css'; ?>">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,50 +61,62 @@ if(isset($_POST['email']) && $_POST['email'] != "" && $_POST['name'] != "")
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition login-page text-sm">
 <div class="register-box">
     <div class="register-logo">
         <a href="#"><b>Admin</b>LTE</a>
     </div>
 
-    <div class="register-box-body">
-        <p class="login-box-msg">Register a new membership</p>
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Register a new membership</p>
 
-        <form action="#" method="post">
-            <div class="form-group has-feedback">
-                <input type="text" name="name" id="name" class="form-control" placeholder="Full name">
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="<?php echo BASE_URL. '/login.php'; ?>" class="text-center">I already have a membership</a>
+            <form action="#" method="post" onsubmit="return check(this, this.password)">
+                <div class="input-group mb-3">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Full name">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="button" onclick="check(this.form, this.form.password)" class="btn btn-primary btn-block btn-flat">Register</button>
+                <div class="input-group mb-3">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.col -->
-            </div>
-        </form>
+
+                <div class="input-group mb-3">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="offset-8 col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </div>
+            </form>
+            <a href="<?php echo BASE_URL. '/login.php'; ?>">I already have a membership</a>
+        </div>
     </div>
     <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
 
-<!-- jQuery 3 -->
-<script src="<?php echo BASE_URL.'/assets/bower_components/jquery/dist/jquery.min.js'; ?>"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo BASE_URL.'/assets/bower_components/bootstrap/dist/js/bootstrap.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/jquery/jquery.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/bootstrap/js/bootstrap.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL.'/assets/dist/js/adminlte.min.js'; ?>"></script>
 <script src="<?php echo BASE_URL. '/assets/dist/js/form.js'; ?>"></script>
 <script src="<?php echo BASE_URL. '/assets/dist/js/sha512.js'; ?>"></script>
 </body>

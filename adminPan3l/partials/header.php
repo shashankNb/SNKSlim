@@ -1,47 +1,31 @@
-<!-- Logo -->
-<a href="index2.html" class="logo">
-    <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>A</b>LT</span>
-    <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Admin</b>LTE</span>
-</a>
+<!-- Left navbar links -->
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+</ul>
 
-<!-- Header Navbar -->
-<nav class="navbar navbar-static-top" role="navigation">
-    <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-    </a>
-    <!-- Navbar Right Menu -->
-    <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-            <!-- User Account Menu -->
-            <li class="dropdown user user-menu">
-                <!-- Menu Toggle Button -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <!-- The user image in the navbar-->
-                    <img src="<?php echo BASE_URL.'/assets/dist/img/user2-160x160.jpg'; ?>" class="user-image" alt="User Image">
-                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                    <span class="hidden-xs"><?php echo $_SESSION['user_name']; ?></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <!-- The user image in the menu -->
-                    <li class="user-header">
-                        <img src="<?php echo BASE_URL.'/assets/dist/img/user2-160x160.jpg'; ?>" class="img-circle" alt="User Image">
+<!-- Right navbar links -->
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <img src="<?php echo BASE_URL . '/assets/dist/img/user2-160x160.jpg'; ?>" class="user-image img-circle elevation-2" alt="User Image">
+            <span class="d-none d-md-inline"><?php echo $_SESSION['user_name']; ?></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
 
-                        <p>
-                            <?php echo $_SESSION['user_name']; ?> - Web Developer
-                            <small><?php echo $_SESSION['email']; ?></small>
-                        </p>
-                    </li>
-                    <!-- Menu Footer-->
-                    <li class="user-footer">
-                        <div class="pull-right">
-                            <a href="<?php echo BASE_URL.'/logout.php'; ?>" class="btn btn-default btn-flat">Sign out</a>
-                        </div>
-                    </li>
-                </ul>
+            <li class="user-header bg-primary">
+                <img src="<?php echo BASE_URL . '/assets/dist/img/user2-160x160.jpg'; ?>" class="img-circle elevation-2" alt="User Image">
+                <p>
+                    <?php echo $_SESSION['user_name']; ?> - Web Developer
+                    <small>Member since Nov. 2012</small>
+                </p>
+            </li>
+
+            <li class="user-footer">
+<!--                <a href="#" class="btn btn-default btn-flat">Profile</a>-->
+                <a href="<?php echo BASE_URL.'/logout.php'; ?>" class="btn btn-default btn-flat float-right">Sign out</a>
             </li>
         </ul>
-    </div>
-</nav>
+    </li>
+</ul>

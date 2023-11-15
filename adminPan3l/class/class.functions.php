@@ -9,11 +9,12 @@ class Functions extends Query
 
     }
 
-    function printr($array)
+    function printr($array, $exit = false)
     {
         echo '<pre>';
         print_r($array);
         echo '</pre>';
+        if ($exit) exit;
     }
 
     function redirect($url)

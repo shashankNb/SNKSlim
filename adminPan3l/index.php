@@ -14,18 +14,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Administration Panel</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/bootstrap/dist/css/bootstrap.min.css'; ?>">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/font-awesome/css/font-awesome.min.css'; ?>">
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/fontawesome-free/css/all.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/datatables-bs4/css/dataTables.bootstrap4.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/datatables-responsive/css/responsive.bootstrap4.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/datatables-buttons/css/buttons.bootstrap4.min.css'; ?>">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/bower_components/Ionicons/css/ionicons.min.css'; ?>">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/dist/css/AdminLTE.min.css'; ?>">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect. -->
-    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/dist/css/skins/skin-blue.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL.'/assets/dist/css/adminlte.min.css'; ?>">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,34 +35,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition sidebar-mini text-sm">
 <div class="wrapper">
     <!-- Main Header -->
-    <header class="main-header">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light bg-primary">
         <?php include_once "partials/header.php"; ?>
-    </header>
+    </nav>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <?php include_once "partials/sidebar.php"; ?>
     </aside>
 
@@ -96,15 +73,32 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="<?php echo BASE_URL. '/assets/bower_components/jquery/dist/jquery.min.js'; ?>"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo BASE_URL. '/assets/bower_components/bootstrap/dist/js/bootstrap.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/jquery/jquery.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/bootstrap/js/bootstrap.bundle.min.js'; ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo BASE_URL.'/assets/dist/js/adminlte.min.js'; ?>"></script>
 
-<script src="<?php echo BASE_URL .'/assets/bower_components/datatables.net/js/jquery.dataTables.min.js'; ?>"></script>
-<script src="<?php echo BASE_URL .'/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/datatables/jquery.dataTables.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/datatables-bs4/js/dataTables.bootstrap4.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/datatables-responsive/js/dataTables.responsive.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/datatables-responsive/js/responsive.bootstrap4.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/datatables-buttons/js/dataTables.buttons.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL. '/assets/bower_components/datatables-buttons/js/buttons.bootstrap4.min.js'; ?>"></script>
+<script src="<?php echo BASE_URL .'/ckeditor/ckeditor.js'; ?>"></script>
+<script src="<?php echo BASE_URL .'/assets/dist/js/bootstrap-confirmation.js'; ?>"></script>
+<script src="<?php echo BASE_URL .'/assets/dist/js/main.js'; ?>"></script>
 <script>
+    CKEDITOR.replace("editor", {
+        extraPlugins: 'filebrowser',
+        //filebrowserBrowseUrl: '<?php //echo BASE_URL. '/ckeditor/browse.php'; ?>//',
+        filebrowserUploadUrl: '<?php echo BASE_URL. '/ckeditor/upload.php'; ?>',
+    });
+
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+        // other options
+    });
+
     $('#dataTable').DataTable({
         'paging'      : false,
         'lengthChange': false,

@@ -31,6 +31,31 @@ class Query
         return $stm->fetchAll(PDO::FETCH_CLASS);
     }
 
+    function selectRow($field, $table, $param = '', $cond = '')
+    {
+        global $con;
+
+        $sql = "	SELECT	$field	FROM	$table";
+
+        if ($param != '')
+        {
+            $sql .= "	WHERE	$param";
+
+            $stm = $con->prepare($sql);
+
+            $stm->execute($cond);
+        }
+
+        else
+        {
+            $stm = $con->prepare($sql);
+
+            $stm->execute();
+        }
+
+        return $stm->fetch(PDO::FETCH_OBJ);
+    }
+
     function cselect($sql, $bind = '')
     {
         global $con;
@@ -64,19 +89,15 @@ class Query
         {
             $param .= ',?';
         }
-
         $sql .= $param . "	)";
 
-        //echo '<br>'.$sql;
         $data = "'";
 
         $data .= join("','", array_values($tbldata));
 
         $data .= "'";
 
-        //echo '<br>'.count($data);
         $stm = $con->prepare($sql);
-        echo $sql;
 
         $data = array(
             $data

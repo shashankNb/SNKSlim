@@ -3,8 +3,8 @@
     const SITE_DOMAIN = 'NEPSKART.COM';
     const HOST = 'localhost';
     const USER = 'root';
-    const PWD = "";
-    const DB = 'sales_tracking';
-    const BASE_URL = 'http://localhost/sales_tracking/adminPan3l';
-    const SITE_ROOT = 'http://localhost/sales_tracking';
+    const PWD = "root";
+    const DB = 'snkslim';
+    const BASE_URL = 'http://adminpanel.local/adminPan3l';
+    const SITE_ROOT = 'http://adminpanel.local';
     const ADMIN_ONLY = true;

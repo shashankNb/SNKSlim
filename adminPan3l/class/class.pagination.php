@@ -20,15 +20,15 @@ class Pagination
 
         $this->limit["second"] 	= $per_page;
 
-        $this->output .= '<nav aria-label="Page Navigation"><ul class=\'pagination pull-right\'>';
+        $this->output .= '<ul class=\'pagination float-left\'>';
 
         if ($current_page != 1)
         {
-            $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page='.$previous.'\' class=\'active\'> <span aria-hidden="true">Previous</span></a></li>';
+            $this->output .= '<li class="page-item"><a href=\''.$link.'&page='.$previous.'\' class=\'page-link active\'> <span aria-hidden="true">Previous</span></a></li>';
         }
         else
         {
-            $this->output .= '<li class="paginate_button prev disabled"><a aria-controls="Prev">Previous</a></li>';
+            $this->output .= '<li class="page-item previous disabled"><a class="page-link" aria-controls="Prev">Previous</a></li>';
         }
 
         if ($total_pages <= 7)
@@ -53,35 +53,35 @@ class Pagination
 
         if ($loop_start != 1)
         {
-            $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page=1\' class=\'active\'>1</a><a>...</a></li>';
+            $this->output .= '<li class="page-item active"><a href=\''.$link.'&page=1\' class=\'page-link\'>1</a><a class="page-link">...</a></li>';
         }
 
         for ($p = $loop_start; $p <= $loop_range; $p++)
         {
             if ($p != $current_page)
             {
-                $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page='.$p.'\' class=\'active\'>'.$p.'</a></li>';
+                $this->output .= '<li class="page-item"><a href=\''.$link.'&page='.$p.'\' class=\' page-link active\'>'.$p.'</a></li>';
             }
             else
             {
-                $this->output .= '<li class="paginate_button active"><a href="#">'.$p.'<span class=\'sr-only\'>current</span></a></li>';
+                $this->output .= '<li class="page-item active"><a href="#" class="page-link">'.$p.'<span class=\'sr-only\'>current</span></a></li>';
             }
         }
 
         if ($loop_range != $total_pages)
         {
-            $this->output .= '<li class="paginate_button"><a>...</a></li><li><a href=\''.$link.'&page='.$total_pages.'\' class=\'active\'>'.$total_pages.'</a></li>';
+            $this->output .= '<li class="page-item"><a class="page-link">...</a></li><li><a href=\''.$link.'&page='.$total_pages.'\' class=\'page-link active\'>'.$total_pages.'</a></li>';
         }
 
         if ($current_page != $total_pages)
         {
-            $this->output .= '<li class="paginate_button"><a href=\''.$link.'&page='.$next.'\' class=\'active\'>Next</a></li>';
+            $this->output .= '<li class="page-item"><a href=\''.$link.'&page='.$next.'\' class=\'page-link active\'>Next</a></li>';
         }
         else
         {
-            $this->output .= '<li class="paginate_button next disabled"><a aria-controls="Next">Next</a></li>';
+            $this->output .= '<li class="next disabled"><a aria-controls="Next" class="page-link">Next</a></li>';
         }
 
-        $this->output .= '</ul></nav>';
+        $this->output .= '</ul>';
     }
 }
