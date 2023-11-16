@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="plugins/datatable/datatables.min.css">
+    <title>Administration Panel</title>
+</head>
+<body>
+
+<div class="container-fluid px-0">
+    <div class="top-block">
+        <div class="d-block float-start">
+            <span><strong><i class="fa fa-caret-left me-2"></i></strong> Project: <strong>Project Name</strong></span>
+        </div>
+        <div class="d-block float-end">
+            <span class="m-lg-2"><i class="fa fa-user-alt text-warning"></i> <strong>Shashank Bhattarai (Admin) </strong></span>
+            <span><i class="fa fa-sign-out text-info"></i> <strong>Logout</strong></span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="container-fluid bottom-block">
+    <div class="row">
+        <aside class="col-md-2">
+            <span class="logo text-center d-block ms-0 me-0">
+                <img src="img/logo.gif" alt="company_logo" class="img-fluid w-50 mb-3">
+            </span>
+            <ul class="box">
+                <li class="submenu-active d-inline-block">
+                    <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">Manage Pages</a>
+                    <ul class="collapse show" id="collapseExample">
+                        <li><a href="#">Add Page</a></li>
+                        <li><a href="#">Manage Pages</a></li>
+                    </ul>
+                </li>
+                <li class="submenu-active d-inline-block">
+                    <a data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="true" aria-controls="collapseExample1">Manage Pages</a>
+                    <ul class="collapse show" id="collapseExample1">
+                        <li><a href="#">Add Page</a></li>
+                        <li><a href="#">Manage Pages</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <main class="col-md-10">
+            <div class="content">
+                <h2 class="h3">Alerts</h2>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fa fa-check-circle text-success"></i> <strong>This is a New Alert with Anchor</strong> You should Check some of fields Below
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-times-circle text-danger"></i> <strong>This is a New Alert with Anchor</strong> You should Check some of fields Below
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle text-warning"></i> <strong>This is a New Alert with Anchor</strong> You should Check some of fields Below
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <i class="fas fa-info-circle text-info"></i> <strong>This is a New Alert with Anchor</strong> You should Check some of fields Below
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <h2 class="h3">Data Table</h2>
+                <table id="dataTable" class="table table-responsive table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h2 class="h3">Forms</h2>
+                <form>
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3">
+                        </div>
+                    </div>
+                    <fieldset class="row mb-3">
+                        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    First radio
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                <label class="form-check-label" for="gridRadios2">
+                                    Second radio
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                                <label class="form-check-label" for="gridRadios3">
+                                    Third disabled radio
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row mb-3">
+                        <div class="col-sm-10 offset-sm-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                <label class="form-check-label" for="gridCheck1">
+                                    Example checkbox
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="plugins/datatable/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    } );
+</script>
+</body>
+</html>
